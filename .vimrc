@@ -1,12 +1,12 @@
 "--------------------GENERAL-------------------------
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set encoding=utf8
 set clipboard=unnamed
-set ignorecase
+set hlsearch
 set undodir=/tmp/.vim/backups
 set undofile
 filetype plugin indent on
-
 "--------------------PLUGINS-------------------------
 set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -17,6 +17,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-repeat'
 Plugin 'sheerun/vim-polyglot'
+Plugin 'iamcco/markdown-preview.nvim' 
 
 "Colorschemes 
 "Plugin 'joshdick/onedark.vim'
@@ -33,11 +34,22 @@ syntax on
 colorscheme minimalist 
 set number
 set cmdheight=1
-set wrap
-set linebreak
+set ignorecase
+set lazyredraw
 set termguicolors
 set t_Co=256
 highlight LineNr ctermfg=grey
+
+"--------------------TEXT WRAPING---------------------
+"Python specific format
+set autoindent
+set linebreak
+set smartcase
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set wrap
 
 "--------------------KEY BINDINGS--------------------
 " Map ctrl-movement keys to window switching
