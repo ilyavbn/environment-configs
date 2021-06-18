@@ -11,6 +11,8 @@ filetype plugin indent on
 set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 " Must have plugins
+
+Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
@@ -18,6 +20,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-repeat'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'iamcco/markdown-preview.nvim' 
+Plugin 'peterhoeg/vim-qml', {'for': 'qml'}
 
 "Colorschemes 
 "Plugin 'joshdick/onedark.vim'
@@ -58,5 +61,12 @@ map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
 nnoremap <leader><leader> :NERDTreeToggle<CR>
+" Turn off arrows 
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 "Russian langmap for commands
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
