@@ -4,8 +4,6 @@ filetype off                  " required
 set encoding=utf8
 set clipboard=unnamed
 set hlsearch
-set undodir=/tmp/.vim/backups
-set undofile
 filetype plugin indent on
 "--------------------PLUGINS-------------------------
 set rtp+=$HOME/.vim/bundle/Vundle.vim
@@ -16,7 +14,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
+"Plugin 'vim-airline/vim-airline'
 Plugin 'tpope/vim-repeat'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'iamcco/markdown-preview.nvim' 
