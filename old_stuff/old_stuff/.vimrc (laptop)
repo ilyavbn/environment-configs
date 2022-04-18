@@ -1,0 +1,98 @@
+"--------------------GENERAL-------------------------
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set encoding=utf8
+set clipboard=unnamed
+set hlsearch
+filetype plugin indent on
+"--------------------PLUGINS-------------------------
+call plug#begin('~/.vim/plugged')
+" Must have plugins
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'scrooloose/nerdtree'
+"Plugin 'vim-airline/vim-airline'
+Plug 'tpope/vim-repeat'
+Plug 'sheerun/vim-polyglot'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'dense-analysis/ale'
+Plug 'peterhoeg/vim-qml', {'for': 'qml'}
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer'  }
+"Colorschemes 
+"Plugin 'joshdick/onedark.vim'
+"Plugin 'micha/vim-colors-solarized'
+"Plugin 'sjl/badwolf'
+"Plugin 'jacoborus/tender.vim'
+"Plugin 'gosukiwi/vim-atom-dark'
+"Plugin 'ajh17/spacegray.vim'
+Plug 'dikiaap/minimalist'
+call plug#end()
+
+"--------------------INTERFACE-----------------------
+syntax on
+colorscheme minimalist 
+set number
+set cmdheight=1
+set ignorecase
+set lazyredraw
+"set termguicolors
+set t_Co=256
+highlight LineNr ctermfg=grey
+
+"--------------------TEXT WRAPING---------------------
+"Python specific format
+set autoindent
+set linebreak
+set smartcase
+set smarttab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set wrap
+
+"--------------------KEY BINDINGS--------------------
+" Map ctrl-movement keys to window switching
+map <C-k> <C-w><Up>
+map <C-j> <C-w><Down>
+map <C-l> <C-w><Right>
+map <C-h> <C-w><Left>
+nnoremap <leader><leader> :NERDTreeToggle<CR>
+" Move after bracket autocomplete
+inoremap <C-@> <ESC>la
+" Turn off arrows 
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+"Russian langmap for commands
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
+"--------------------KEY BINDINGS--------------------
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+
+"--------------------JAVASCRIPT CONFIG--------------------
+let g:vim_jsx_pretty_highlight_close_tag = 1
+au FileType javascript setlocal formatprg=prettier
+au FileType javascript.jsx setlocal formatprg=prettier
+au FileType typescript setlocal formatprg=prettier\ — parser\ typescript
